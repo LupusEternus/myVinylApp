@@ -1,0 +1,35 @@
+package com.example.myVinylApp.model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Set;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "artist")
+public class Artist {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(length = 1000)
+    private String profile;
+    @ManyToMany
+    @JoinTable(
+            name =  "artist_members",
+            joinColumns = @JoinColumn(name = "artist_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_id")
+    )
+
+    private Set<Artist> members;
+    @ElementCollection
+    private Set<String> imageUrls;
+    private String resourceURL;
+
+
+
+
+}
