@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
     private String email;
@@ -35,7 +35,6 @@ public class User {
         this.role = role;
     }
 
-    @Override
     public String toString() {
         return "User{" +
                 "id=" + id +

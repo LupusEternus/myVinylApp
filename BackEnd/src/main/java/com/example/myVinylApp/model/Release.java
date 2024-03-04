@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name ="releasess")
 public class Release {
 
     @Id
@@ -13,7 +14,7 @@ public class Release {
     private String title;
     @ManyToMany
     @JoinTable(
-            name="release_artist",
+            name = "release_artist",
             joinColumns = @JoinColumn(name = "release_id"),
             inverseJoinColumns = @JoinColumn(name = "artist_id")
     )
@@ -21,9 +22,6 @@ public class Release {
     private String picUrl;
     private String releaseDate;
     private String country;
-
-
-
 
 
 }
